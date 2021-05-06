@@ -1,0 +1,123 @@
+/* color profiles */
+/* main purple #8A2BE2 */
+/* base black #000 */
+/* text on black #FFF8DC */
+
+/* WhiteSpace Reset */
+ul,ol { list-style: none; }
+h1,h2,h3,h4,h5,h6,pre,code { font-size: 1em;}
+ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset,input,dl,dt,dd, figure, figcaption {
+  margin: 0;
+  padding: 0; }
+a img,:link img,:visited img, fieldset { border: none; }
+address { font-style: normal; }
+header, section, article, nav, footer, hgroup, details, summary, figure, main {
+  display: block;}
+mark {
+  color: inherit;
+  background: transparent; }
+abbr { border: none; }
+summary::-webkit-details-marker { display: none; }
+
+body {
+  background-color: #000;
+  box-sizing: border-box;
+  color: #FFF8DC;
+  font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+}
+
+/* ## header */
+.logo {
+  background-color: #8A2BE2;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo_link {
+  color: #FFF8DC;
+  font-size: 36px;
+  text-decoration: none;
+}
+
+.logo h1 {
+  padding-bottom: 15px;
+}
+
+/* ## App Container */
+.app_shell {
+  height: auto;
+  margin: 0 auto;
+  min-height: 400px;
+  min-width: 400px;
+  width: 70%;
+}
+
+/* ## contact list */
+.contact_card_holder {
+  border: 5px #8A2BE2 outset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.contact_card {
+  background-color: #5F5491;
+  border: 5px #8A2BE2 inset;
+  flex-basis: 25%;
+  margin: 1%;
+  padding: 2%;
+}
+
+.contact_form form{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* ## buttons  */
+.btn,
+.tagged {
+  background-color: #FFF8DC;
+  border: 2px #000 solid;
+  border-radius: 5px;
+  color: #000;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ## search bar */
+.search_bar {
+  align-content: space-between;
+  border: 5px #8A2BE2 outset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.search_bar button,
+.search_bar input,
+.search_bar div {
+  max-height: 50px;
+
+}
+
+/* ## hide/show */
+.hidden {
+  display: none;
+}
+
+/* ## form tag highlighting */
+.tagged {
+  background-color: #8A2BE2;
+}
+
+/* ## input validation */
+input:valid {
+  border: 2px #00BA00 solid;
+}
+
+input:invalid {
+  border: 2px #B00 solid;
+}

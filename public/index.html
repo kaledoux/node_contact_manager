@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Contact Manager 3000</title>
+    <link href="./stylesheets/main.css" rel="stylesheet" />
+    <script type="module" src="./javascripts/contactApp.js"></script>
+    <script src="./javascripts/handlebars.js"></script>
+  </head>
+  <body>
+    <!-- static header -->
+    <header class="logo">
+      <h1><a href="/" class="logo_link">Contact Manager</a></h1>
+      <p>Using Backbone.js, Localstorage, RequireJS, Handlebar and Bootstrap</p>
+    </header>
+    <!-- App container -->
+    <main class="app_shell" id="app_shell">
+
+    </main>
+    <!-- HB scripts -->
+    <!-- no contacts screen -->
+    <script id="noContacts"type="text/x-handlebars-template">
+      <div class="no_contacts" id="no_contacts">
+        <p>There are no contacts. Please add some!</p>
+        <button class="add_form_btn" type="button" name="add_form">Add Contact</button>
+      </div>
+    </script>
+
+    <!-- contact list -->
+    <script id="contactList" type="text/x-handlebars-template">
+      <div class="contact_card_holder" id="contact_card_holder">
+        {{#each contactsArray}}
+          {{> contactCard}}
+        {{/each}}
+      </div>
+    </script>
+
+    <!-- contact partial -->
+    <script id="contactCard" type="text/handlebars" data-type="partial">
+      <div class="contact_card" data-contactID="{{id}}">
+        <p class="contant_name">{{full_name}}</p>
+        <p class="contact_email">{{email}}</p>
+        <p class="contact_number">{{phone_number}}</p>
+        <p class="contact_tags">{{tags}}</p>
+        <button class="btn update_btn" type="button" name="update">Update</button>
+        <button class="btn delete_btn" type="button" name="delete">Delete</button>
+      </div>
+    </script>
+
+    <!-- search bar -->
+    <script id="searchBar" type="text/x-handlebars-template">
+      <div class="search_bar" id="search_bar">
+        <button class="add_form_btn" type="button" name="add_form">Add Contact</button>
+        <input id="search_bar_input" type="text"
+               name="search" placeholder="search contacts"/>
+        <div class="tag_buttons">
+          <p>Filter Contacts by Tag:</p>
+          {{#each tags}}
+            <button type="button" class="tagFilter" name="{{this}}">{{this}}</button>
+          {{/each}}
+        </div>
+        <div class="clear_filter">
+          <p>Clear Filter:</p>
+            <button type="button" class="clearFilter" name="clear">Clear Search</button>
+        </div>
+      </div>
+    </script>
+
+    <!-- add contact form -->
+    <script id="addContactForm" type="text/x-handlebars-template">
+      <div class="contact_form" id="add_contact_div">
+        <form id="add_contact_form" class="" action="#" method="post">
+          <label for="full_name">Name:</label>
+          <input type="text" name="full_name" id="full_name" placeholder="Jane Doe"
+                 class="validator" required pattern="^[A-Za-z]+[A-Za-z '\-]*$">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email" placeholder="name@site.co"
+                 class="validator" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
+          <label for="phone_number">Phone Number:</label>
+          <input type="tel" name="phone_number" id="phone_number" placeholder="555-555-5555"
+                 class="validator" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+          <label for="tags">Tags:</label>
+          <input class="validator" type="text" name="tags" id="tags"
+                 pattern="([A-Za-z\-]+,?)*" placeholder="tag1,tag2,tag3">
+          <button class="btn add_contact_btn" type="submit" name="submit">Add Contact</button>
+          <button class="btn cancel_btn" type="button" name="cancel">Cancel</button>
+        </form>
+      </div>
+    </script>
+
+    <script id="populateTags" type="text/x-handlebars-template">
+          <p>Click to add a tag. Click again to remove it:</p>
+        {{#each tags}}
+          <button type="button" class="tag_buttons_form">{{this}}</button>
+        {{/each}}
+    </script>
+
+    <!-- update contact form -->
+    <script id="updateContactForm" type="text/x-handlebars-template">
+      <div class="contact_form" id="update_contact_div">
+        <form id="update_contact_form"class="" action="#" method="post">
+          <label for="full_name">Name:</label>
+          <input class="validator" type="text" name="full_name" id="full_name_update" value=""
+                 required pattern="^[A-Za-z]+[A-Za-z '\-]*$">
+          <label for="email">Email:</label>
+          <input type="email" name="email" id="email_update" value=""
+                 class="validator" required pattern="^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$">
+          <label for="phone_number">Phone Number:</label>
+          <input type="tel" name="phone_number" id="phone_number_update" value=""
+                 class="validator" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+          <label for="tags">Tags:</label>
+          <input class="validator" type="text" name="tags" id="tags_update" pattern="([A-Za-z\-]+,?)*">
+          <button class="btn" type="submit" name="submit">Update</button>
+          <button class="btn cancel_btn" type="button" name="cancel">Cancel</button>
+        </form>
+      </div>
+    </script>
+
+  </body>
+</html>
